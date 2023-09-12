@@ -1,8 +1,6 @@
 <?php
 
-    class Response
-    {
-        const OK = 200;
-        const FORBIDDEN = 403;
+    class Response {
         const NOT_FOUND = 404;
+        const FORBIDDEN = 403;
     }
