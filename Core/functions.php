@@ -16,13 +16,6 @@ function urlIs($value)
     return $_SERVER['REQUEST_URI'] === $value;
 }
 
-function authorize($condition, $status = Response::FORBIDDEN)
-{
-    if (! $condition) {
-        abort($status);
-    }
-}
-
 function abort($code = 404)
 {
     http_response_code($code);
@@ -30,6 +23,15 @@ function abort($code = 404)
     require base_path("views/{$code}.php");
 
     die();
+}
+
+function authorize($condition, $status = Response::FORBIDDEN)
+{
+    if (! $condition) {
+        abort($status);
+    }
+
+    return true;
 }
 
 function base_path($path)
